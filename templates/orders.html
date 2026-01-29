@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Orders - Homeee</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="container orders-box">
+    <h1>Your Orders</h1>
+    <ul>
+      {% for order in orders %}
+        <li>{{ order.name }} - ${{ order.price }}</li>
+      {% else %}
+        <li>No orders yet.</li>
+      {% endfor %}
+    </ul>
+    <div style="margin-top:32px;">
+      <a href="/">Back to Dashboard</a> | <a href="/profile">Profile</a>
+    </div>
+</div>
+</body>
+</html>

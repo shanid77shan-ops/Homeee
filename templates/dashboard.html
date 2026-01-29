@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Homeee</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Dashboard</h1>
+    <ul>
+      {% for category, items in categories.items() %}
+        <li>
+          <h2>{{ category.title() }}</h2>
+          <ul>
+            {% for item in items %}
+              <li>
+                <span>{{ item.name }} - ${{ item.price }}</span>
+                <form action="/order/{{ category }}/{{ item.id }}" method="post" style="display:inline;">
+                  <button type="submit">Order</button>
+                </form>
+              </li>
+            {% endfor %}
+          </ul>
+        </li>
+      {% endfor %}
+    </ul>
+    <div style="margin-top:32px;">
+      <a href="/orders">Order List</a> | <a href="/profile">Profile</a>
+    </div>
+</div>
+</body>
+</html>
